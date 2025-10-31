@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option csharp_namespace = "ApiGateway.Protos.Inventory";
+
+package inventory;
+
+// Definición del servicio de inventario
+service InventoryService {
+  rpc GetAllInventoryItems (GetAllInventoryItemsRequest) returns (GetAllInventoryItemsResponse);
+  rpc GetInventoryItemById (GetInventoryItemByIdRequest) returns (GetInventoryItemByIdResponse);
+  rpc UpdateInventoryItemStock (UpdateInventoryItemStockRequest) returns (UpdateInventoryItemStockResponse);
+}
+
+// Mensajes para las solicitudes y respuestas
+message GetAllInventoryItemsRequest {
+    
+}
+
+// Solicitud para obtener un artículo de inventario por ID
+message GetInventoryItemByIdRequest {
+    string Item_id = 1;
+}
+
+// Solicitud para actualizar el stock de un artículo de inventario
+message UpdateInventoryItemStockRequest {
+    string Item_id = 1;
+    string Operation = 2;
+    int32 Quantity = 3;
+}
+
+// Respuesta para obtener todos los artículos de inventario
+message GetAllInventoryItemsResponse {
+    repeated InventoryItem Items = 1;
+}
+
+// Definición del mensaje de artículo de inventario
+message InventoryItem {
+    string product_id = 1;        
+    string product_name = 2;
+    string product_category = 3;
+    int32 product_stock = 4;
+    bool product_status = 5;
+    int32 threshold_limit = 6;
+    string created_at = 7;
+    string updated_at = 8;
+    string deleted_at = 9;
+}
+
+// Respuesta para obtener un artículo de inventario por ID
+message GetInventoryItemByIdResponse {
+    InventoryItem Item = 1;
+}
+
+// Respuesta para actualizar el stock de un artículo de inventario
+message UpdateInventoryItemStockResponse {
+    UpdateOperation Item = 1;
+}
+
+// Definición del mensaje de operación de actualización
+message UpdateOperation {
+    bool success = 1;
+    string message = 2;
+    string product_id = 3;        
+    string product_name = 4;
+    string product_category = 5;
+    int32 previous_stock = 6;
+    int32 updated_stock = 7;
+    string operation = 8;
+    int32 quantity_changed = 9;
+    string alert = 10;
+}
+
