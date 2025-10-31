@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ApiGateway.Protos.Inventory;
 using ApiGateway.Src.DTOs;
+using ApiGateway.Src.Extensions;
 using Grpc.Core;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,31 +24,58 @@ namespace ApiGateway.Src.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllInventoryItems()
         {
-            var request = new GetAllInventoryItemsRequest();
-            var response = await _inventoryClient.GetAllInventoryItemsAsync(request);
-            return Ok(response);
+            try
+            {
+                var request = new GetAllInventoryItemsRequest();
+                var response = await _inventoryClient.GetAllInventoryItemsAsync(request);
+                return Ok(response);
+            }
+            catch (RpcException ex)
+            {
+                return GrpcErrorMapper.MapGrpcErrorToHttp(ex);
+            }
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetInventoryItemById(string id)
         {
-            var request = new GetInventoryItemByIdRequest { ItemId = id };
-            var response = await _inventoryClient.GetInventoryItemByIdAsync(request);
-            return Ok(response);
+            try
+            {
+                var request = new GetInventoryItemByIdRequest { ItemId = id };
+                var response = await _inventoryClient.GetInventoryItemByIdAsync(request);
+                if (response.Item == null) return NotFound(new { message = "Product not found" });
+                return Ok(response);
+            }
+            catch (RpcException ex)
+            {
+                return GrpcErrorMapper.MapGrpcErrorToHttp(ex);
+            }
+            
         }
 
         [HttpPatch("{id}")]
         public async Task<IActionResult> UpdateItemStock(string id, UpdateStockDto updateStockDto)
         {
-            var request = new UpdateInventoryItemStockRequest
-            {
-                ItemId = id,
-                Operation = updateStockDto.Operation,
-                Quantity = updateStockDto.Quantity
-            };
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            var response = await _inventoryClient.UpdateInventoryItemStockAsync(request);
-            return Ok(response);
+            try
+            {
+                var request = new UpdateInventoryItemStockRequest
+                {
+                    ItemId = id,
+                    Operation = updateStockDto.Operation,
+                    Quantity = updateStockDto.Quantity
+                };
+
+                var response = await _inventoryClient.UpdateInventoryItemStockAsync(request);
+                if (!response.Item.Success) return BadRequest(new { message = response.Item.Message });
+                return Ok(response);
+            }
+            catch (RpcException ex)
+            {
+                return GrpcErrorMapper.MapGrpcErrorToHttp(ex);
+            }
+            
         }
     }
 }
