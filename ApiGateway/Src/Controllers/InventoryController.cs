@@ -6,12 +6,14 @@ using ApiGateway.Protos.Inventory;
 using ApiGateway.Src.DTOs;
 using ApiGateway.Src.Extensions;
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGateway.Src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class InventoryController : ControllerBase
     {
         private readonly InventoryService.InventoryServiceClient _inventoryClient;
