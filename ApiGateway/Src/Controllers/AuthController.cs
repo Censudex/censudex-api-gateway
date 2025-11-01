@@ -42,13 +42,13 @@ namespace ApiGateway.Src.Controllers
             }
         }
 
-        [HttpGet("ValidateToken")]
-        public async Task<IActionResult> ValidateToken()
+        [HttpPost("ValidateToken")]
+        public async Task<IActionResult> ValidateToken([FromBody] ValidateTokenRequest request)
         {
             try
             {
                 var client = _httpClientFactory.CreateClient("AuthService");
-                var response = await client.GetAsync($"/api/Auth/validate-token");
+                var response = await client.PostAsJsonAsync($"/api/Auth/validate-token", request);
 
                 var content = await response.Content.ReadAsStringAsync();
 
