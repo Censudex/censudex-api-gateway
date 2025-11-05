@@ -13,7 +13,7 @@ namespace ApiGateway.Src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    [Authorize(Roles = "ADMIN")]
     public class InventoryController : ControllerBase
     {
         private readonly InventoryService.InventoryServiceClient _inventoryClient;
