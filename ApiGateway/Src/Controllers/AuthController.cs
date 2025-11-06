@@ -25,7 +25,19 @@ namespace ApiGateway.Src.Controllers
             try
             {
                 var client = _httpClientFactory.CreateClient("AuthService");
-                var response = await client.PostAsJsonAsync("/api/auth/login", request);
+
+                // Agregar la parte de clientes en donde se identifica si el usuario existe o no.
+
+                var loginRequestExtended = new LoginRequestExtended
+                {
+                    Email = request.Email,
+                    // Cambiar cuando el servicio de clientes este listo.
+                    Id = "12345",
+                    Username = "Admin",
+                    Role = "ADMIN"
+                };
+
+                var response = await client.PostAsJsonAsync("/api/auth/login", loginRequestExtended);
 
                 var content = await response.Content.ReadAsStringAsync();
 
