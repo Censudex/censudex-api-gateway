@@ -38,12 +38,12 @@ namespace ApiGateway.Src.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetInventoryItemById(string id)
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> GetInventoryItemById(string productId)
         {
             try
             {
-                var request = new GetInventoryItemByIdRequest { ItemId = id };
+                var request = new GetInventoryItemByIdRequest { ItemId = productId };
                 var response = await _inventoryClient.GetInventoryItemByIdAsync(request);
                 if (response.Item == null) return NotFound(new { message = "Product not found" });
                 return Ok(response);
@@ -55,8 +55,8 @@ namespace ApiGateway.Src.Controllers
             
         }
 
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> UpdateItemStock(string id, UpdateStockDto updateStockDto)
+        [HttpPatch("{productId}")]
+        public async Task<IActionResult> UpdateItemStock(string productId, UpdateStockDto updateStockDto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -64,7 +64,7 @@ namespace ApiGateway.Src.Controllers
             {
                 var request = new UpdateInventoryItemStockRequest
                 {
-                    ItemId = id,
+                    ItemId = productId,
                     Operation = updateStockDto.Operation,
                     Quantity = updateStockDto.Quantity
                 };

@@ -50,9 +50,16 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-// Configurar JWT Authentication
 var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET") 
     ?? throw new InvalidOperationException("JWT_SECRET no está configurado");
+
+var keyBytes = Encoding.UTF8.GetBytes(jwtSecret);
+
+if (keyBytes.Length < 32)
+{
+    throw new InvalidOperationException(
+        $"JWT_SECRET debe tener al menos 32 caracteres. Actual: {keyBytes.Length}");
+}
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -65,7 +72,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER"),
             ValidAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE"),
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecret))
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
         };
     });
 

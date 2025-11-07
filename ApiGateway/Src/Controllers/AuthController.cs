@@ -26,25 +26,39 @@ namespace ApiGateway.Src.Controllers
             {
                 var client = _httpClientFactory.CreateClient("AuthService");
 
-                // Agregar la parte de clientes en donde se identifica si el usuario existe o no.
+                LoginRequestExtended loginRequestExtended;
 
-                var loginRequestExtended = new LoginRequestExtended
+                if (request.Email.Equals(Environment.GetEnvironmentVariable("ADMIN_EMAIL")) &&
+                    request.Password.Equals(Environment.GetEnvironmentVariable("ADMIN_PASSWORD")))
                 {
-                    Email = request.Email,
-                    // Cambiar cuando el servicio de clientes este listo.
-                    Id = "12345",
-                    Username = "Admin",
-                    Role = "ADMIN"
-                };
+                    loginRequestExtended = new LoginRequestExtended
+                    {
+                        Id = "12345",
+                        Username = "Admin",
+                        Email = request.Email,
+                        Role = "ADMIN"
+                    };
+                }
+                else if (request.Email.Equals(Environment.GetEnvironmentVariable("CLIENT_EMAIL")) &&
+                        request.Password.Equals(Environment.GetEnvironmentVariable("CLIENT_PASSWORD")))
+                {
+                    loginRequestExtended = new LoginRequestExtended
+                    {
+                        Id = "67890",
+                        Username = "ClientUser",
+                        Email = request.Email,
+                        Role = "CLIENT"
+                    };
+                }
+                else
+                {
+                    return Unauthorized(new { message = "Invalid email or password" });
+                }
 
                 var response = await client.PostAsJsonAsync("/api/auth/login", loginRequestExtended);
-
                 var content = await response.Content.ReadAsStringAsync();
 
-                if (!response.IsSuccessStatusCode)
-                {
-                    return StatusCode((int)response.StatusCode, JsonSerializer.Deserialize<object>(content));
-                }
+                if (!response.IsSuccessStatusCode) return StatusCode((int)response.StatusCode, JsonSerializer.Deserialize<object>(content));
 
                 return Ok(JsonSerializer.Deserialize<object>(content));
             }
