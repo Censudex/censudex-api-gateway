@@ -13,7 +13,6 @@ namespace ApiGateway.Src.Controllers
 {
     [ApiController]
     [Route("api/inventory")]
-    [Authorize(Roles = "ADMIN")]
     public class InventoryController : ControllerBase
     {
         private readonly InventoryService.InventoryServiceClient _inventoryClient;
@@ -23,6 +22,7 @@ namespace ApiGateway.Src.Controllers
             _inventoryClient = inventoryClient;
         }
 
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public async Task<IActionResult> GetAllInventoryItems()
         {
