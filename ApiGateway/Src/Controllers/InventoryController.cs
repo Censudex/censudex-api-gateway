@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiGateway.Src.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/inventory")]
     [Authorize(Roles = "ADMIN")]
     public class InventoryController : ControllerBase
     {

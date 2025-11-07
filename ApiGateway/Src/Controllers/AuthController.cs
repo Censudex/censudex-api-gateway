@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiGateway.Src.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api")]
     public class AuthController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -54,7 +54,7 @@ namespace ApiGateway.Src.Controllers
             }
         }
 
-        [HttpPost("ValidateToken")]
+        [HttpPost("validate-token")]
         public async Task<IActionResult> ValidateToken([FromBody] ValidateTokenRequest request)
         {
             try
