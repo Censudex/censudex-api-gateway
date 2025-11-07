@@ -6,7 +6,7 @@ option csharp_namespace = "ApiGateway.Protos.Product";
 package products;
 
 
-service ProductService {
+service ProductsService {
   rpc CreateProduct(CreateProductRequest) returns (ProductResponse);
   rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
   rpc GetProductById(GetProductByIdRequest) returns (ProductResponse);
