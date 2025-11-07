@@ -1,5 +1,6 @@
 using System.Text;
 using ApiGateway.Protos.Inventory;
+using ApiGateway.Protos.Product;
 using DotNetEnv;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -73,6 +74,11 @@ builder.Services.AddAuthorization();
 builder.Services.AddGrpcClient<InventoryService.InventoryServiceClient>(options =>
 {
     options.Address = new Uri(Environment.GetEnvironmentVariable("INVENTORY_SERVICE_URL") ?? "https://localhost:5001");
+});
+
+builder.Services.AddGrpcClient<ProductsService.ProductsServiceClient>(options =>
+{
+    options.Address = new Uri(Environment.GetEnvironmentVariable("PRODUCT_SERVICE_URL") ?? "https://localhost:50051");
 });
 
 builder.Services.AddHttpClient("AuthService", client =>
