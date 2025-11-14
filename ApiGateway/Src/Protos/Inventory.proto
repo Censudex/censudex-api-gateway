@@ -9,6 +9,7 @@ service InventoryService {
   rpc GetAllInventoryItems (GetAllInventoryItemsRequest) returns (GetAllInventoryItemsResponse);
   rpc GetInventoryItemById (GetInventoryItemByIdRequest) returns (GetInventoryItemByIdResponse);
   rpc UpdateInventoryItemStock (UpdateInventoryItemStockRequest) returns (UpdateInventoryItemStockResponse);
+  rpc CreateInventoryItem (CreateInventoryItemRequest) returns (CreateInventoryItemResponse);
 }
 
 // Mensajes para las solicitudes y respuestas
@@ -75,4 +76,23 @@ message UpdateOperation {
     string operation = 8;
     int32 quantity_changed = 9;
     string alert = 10;
+}
+
+message CreateInventoryItemRequest {
+    string product_id = 1;        
+    string product_name = 2;
+    string product_category = 3;
+    int32 product_stock = 4;
+    bool product_status = 5;
+}
+
+message CreateInventoryItemResponse {
+    bool success = 1;
+    string message = 2;
+    string product_id = 3;        
+    string product_name = 4;
+    string product_category = 5;
+    int32 product_stock = 6;
+    bool product_status = 7;
+    int32 threshold_limit = 8;
 }
