@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "27172d0a-74c8-4f55-b32a-53e61d64344a",
+		"name": "censudex-api-gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34959431"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/products",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/products/dada-dada-",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"products",
+								"dada-dada-"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/products/dadada-dada-d-ad-a-da",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"products",
+								"dadada-dada-d-ad-a-da"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/products",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/products/saas-sa-sa-as",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"products",
+								"saas-sa-sa-as"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "Get All Inventory Items",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjFmMGEwMWMwLWU2OTMtNDM5ZS05ZmZkLTVkYjNhNTM2ZmYzZCIsImlhdCI6IjE3NjMyMjcyMzQiLCJleHAiOjE3NjMyMzA4MzQsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.EHLq1sMFaJJJvYyqeauLpEFmXhgxzWmOZ5aUUVXrswo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/inventory",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Item By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inventory",
+								"019a83e7-ca92-7262-af39-285d7b3abcbe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item Stock",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Item_id\": \"019a83e7-ca65-7a1e-a1ce-4b72d0c8ea27\",\r\n    \"Operation\": \"decrease\",\r\n    \"Quantity\": 90\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"inventory",
+								"019a83e7-ca92-7262-af39-285d7b3abcbe"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjFmMGEwMWMwLWU2OTMtNDM5ZS05ZmZkLTVkYjNhNTM2ZmYzZCIsImlhdCI6IjE3NjMyMjcyMzQiLCJleHAiOjE3NjMyMzA4MzQsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.EHLq1sMFaJJJvYyqeauLpEFmXhgxzWmOZ5aUUVXrswo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/validate-token",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"validate-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjFmMGEwMWMwLWU2OTMtNDM5ZS05ZmZkLTVkYjNhNTM2ZmYzZCIsImlhdCI6IjE3NjMyMjcyMzQiLCJleHAiOjE3NjMyMzA4MzQsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.EHLq1sMFaJJJvYyqeauLpEFmXhgxzWmOZ5aUUVXrswo\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/logout",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "crearPedido",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"a6c4b1f2-98ef-4b7f-b1ef-33b4ff49d87f\",\r\n  \"clientName\": \"Nicolás Galleguillos\",\r\n  \"shippingAddress\": \"Av. Los Robles 1234, Santiago\",\r\n  \"items\": [\r\n    { \"productId\": \"019a64c4-7188-7fc6-82ee-6759fc681b16\", \"quantity\": 2, \"price\": 25.5 },\r\n    { \"productId\": \"019a64c4-71b3-728b-8d1c-acff4c707ae5\", \"quantity\": 1, \"price\": 10.0 }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/orders",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultarEstadoPedido",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/orders/TRK-O8CWMMAJ2Y/status",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders",
+								"TRK-O8CWMMAJ2Y",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualizarEstadoPedido",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"{\r",
+									"    \"status\":\"xd\"\r",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"enviado\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/status",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders",
+								"14b6cf04-23f1-4433-ac33-7f9b4a6d629c",
+								"status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancelarPedido",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"role\": \"admin\",\r\n  \"reason\":\"por que si \"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/cancel",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders",
+								"14b6cf04-23f1-4433-ac33-7f9b4a6d629c",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verHistorialPedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/orders/history/9e2eb2c9-789c-451b-b100-7be265d71004",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders",
+								"history",
+								"9e2eb2c9-789c-451b-b100-7be265d71004"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verPedidos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/orders",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Client",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api",
+			"value": ""
+		}
+	]
+}

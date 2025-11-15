@@ -79,6 +79,7 @@ message UpdateOperation {
     string alert = 10;
 }
 
+// Solicitud para crear un nuevo artículo de inventario
 message CreateInventoryItemRequest {
     string product_id = 1;        
     string product_name = 2;
@@ -87,6 +88,7 @@ message CreateInventoryItemRequest {
     string product_status = 5;
 }
 
+// Respuesta para crear un nuevo artículo de inventario
 message CreateInventoryItemResponse {
     bool success = 1;
     string message = 2;

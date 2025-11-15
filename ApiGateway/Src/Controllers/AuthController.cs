@@ -8,17 +8,32 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGateway.Src.Controllers
 {
+    /// <summary>
+    /// Controlador para la autenticación de usuarios.
+    /// </summary>
     [ApiController]
     [Route("api")]
     public class AuthController : ControllerBase
     {
+        /// <summary>
+        /// Fábrica de clientes HTTP para realizar solicitudes a servicios externos.
+        /// </summary>
         private readonly IHttpClientFactory _httpClientFactory;
 
+        /// <summary>
+        /// Constructor del controlador de autenticación.
+        /// </summary>
+        /// <param name="httpClientFactory">Fábrica de clientes HTTP.</param>
         public AuthController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
 
+        /// <summary>
+        /// Inicia sesión para un usuario.
+        /// </summary>
+        /// <param name="request">Datos de inicio de sesión.</param>
+        /// <returns>Resultado de la operación de inicio de sesión.</returns>
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
@@ -68,6 +83,11 @@ namespace ApiGateway.Src.Controllers
             }
         }
 
+        /// <summary>
+        /// Valida un token de autenticación.
+        /// </summary>
+        /// <param name="request">Datos del token a validar.</param>
+        /// <returns>Resultado de la validación del token.</returns>
         [HttpPost("validate-token")]
         public async Task<IActionResult> ValidateToken([FromBody] ValidateTokenRequest request)
         {
@@ -91,6 +111,11 @@ namespace ApiGateway.Src.Controllers
             }
         }
 
+        /// <summary>
+        /// Cierra la sesión de un usuario.
+        /// </summary>
+        /// <param name="request">Datos de cierre de sesión.</param>
+        /// <returns>Resultado de la operación de cierre de sesión.</returns>
         [HttpPost("logout")]
         public async Task<IActionResult> Logout([FromBody] LogoutRequest request)
         {

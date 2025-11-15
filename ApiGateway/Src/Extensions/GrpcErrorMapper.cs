@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiGateway.Src.Extensions
 {
+    /// <summary>
+    /// Clase para mapear errores gRPC a respuestas HTTP.
+    /// </summary>
     public static class GrpcErrorMapper
     {
+        /// <summary>
+        /// Mapea un error gRPC a una respuesta HTTP adecuada.
+        /// </summary>
+        /// <param name="ex">Excepción RpcException lanzada por una llamada gRPC.</param>
+        /// <returns>Una respuesta IActionResult que representa el error HTTP correspondiente.</returns>
         public static IActionResult MapGrpcErrorToHttp(RpcException ex)
         {
             var statusCode = ex.StatusCode switch
