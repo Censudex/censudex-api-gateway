@@ -38,8 +38,9 @@ message GetAllInventoryItemsResponse {
 message InventoryItem{
     string product_id = 1;        
     string product_name = 2;
+    string product_category = 3;
     int32 product_stock = 4;
-    bool product_status = 5;
+    string product_status = 5;
 }
 
 // Respuesta para obtener un artículo de inventario por ID
@@ -53,7 +54,7 @@ message InventoryItemById {
     string product_name = 2;
     string product_category = 3;
     int32 product_stock = 4;
-    bool product_status = 5;
+    string product_status = 5;
     int32 threshold_limit = 6;
     string created_at = 7;
     string updated_at = 8;
@@ -83,7 +84,7 @@ message CreateInventoryItemRequest {
     string product_name = 2;
     string product_category = 3;
     int32 product_stock = 4;
-    bool product_status = 5;
+    string product_status = 5;
 }
 
 message CreateInventoryItemResponse {
@@ -93,6 +94,6 @@ message CreateInventoryItemResponse {
     string product_name = 4;
     string product_category = 5;
     int32 product_stock = 6;
-    bool product_status = 7;
+    string product_status = 7;
     int32 threshold_limit = 8;
 }
