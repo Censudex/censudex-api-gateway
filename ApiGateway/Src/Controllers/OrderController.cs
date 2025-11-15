@@ -20,7 +20,7 @@ namespace ApiGateway.Src.Controllers
 
         // 🔹 Crear orden
         [HttpPost]
-        //[Authorize(Roles = "CLIENT")]
+        [Authorize(Roles = "CLIENT")]
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderDto apiRequest)
         {
             if (!ModelState.IsValid)
@@ -64,7 +64,7 @@ namespace ApiGateway.Src.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> GetAllOrders([FromQuery] string? id, [FromQuery] string? userId, [FromQuery] string? startDate, [FromQuery] string? endDate)
         {
             try
@@ -91,7 +91,7 @@ namespace ApiGateway.Src.Controllers
         }
 
         [HttpGet("{trackingNumber}/status")]
-        //[Authorize(Roles = "CLIENT")]
+        [Authorize(Roles = "CLIENT")]
         public async Task<IActionResult> GetOrderStatus(string trackingNumber)
         {
             try
@@ -116,7 +116,7 @@ namespace ApiGateway.Src.Controllers
 
         // 🔹 Actualizar el estado de una orden
         [HttpPatch("{id}/status")]
-        //[Authorize(Roles = "ADMIN")]
+        [Authorize(Roles = "ADMIN")]
         public async Task<IActionResult> UpdateOrderStatus(string id, [FromBody] UpdateOrderStatusDto apiRequest)
         {
             try
@@ -155,7 +155,7 @@ namespace ApiGateway.Src.Controllers
                 {
                     IdOrTracking = idOrTracking,
                     Role = role,
-                    Reason = reason ?? string.Empty
+                    Reason = reason ?? "no reason provided"
                 };
 
                 // 🔹 Llamar al servicio gRPC
@@ -180,7 +180,7 @@ namespace ApiGateway.Src.Controllers
 
         // 🔹 Obtener historial de órdenes de un usuario
         [HttpGet("history/{userId}")]
-        //[Authorize(Roles = "CLIENT")]
+        [Authorize(Roles = "CLIENT")]
         public async Task<IActionResult> GetOrderHistory(string userId)
         {
             try

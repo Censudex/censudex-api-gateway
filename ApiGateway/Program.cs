@@ -87,7 +87,7 @@ builder.Services.AddGrpcClient<InventoryService.InventoryServiceClient>(options 
 
 builder.Services.AddGrpcClient<ProductsService.ProductsServiceClient>(options =>
 {
-    options.Address = new Uri(Environment.GetEnvironmentVariable("PRODUCT_SERVICE_URL") ?? "https://localhost:50051");
+    options.Address = new Uri(Environment.GetEnvironmentVariable("PRODUCT_SERVICE_URL") ?? "http://localhost:50051");
 });
 
 builder.Services.AddGrpcClient<OrderService.OrderServiceClient>(options =>
