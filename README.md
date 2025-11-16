@@ -379,7 +379,7 @@ curl -X POST "http://localhost:5152/api/products" \
 
 **Request Body**
 ```bash
-curl -X PATCH "http://localhost:5000/api/products/ID_DEL_PRODUCTO" \
+curl -X PATCH "http://localhost:5152/api/products/ID_DEL_PRODUCTO" \
   -H "Authorization: Bearer TU_TOKEN_AQUI" \
   -H "Accept: application/json" \
   -F "Name=Nuevo Nombre" \
@@ -693,6 +693,7 @@ curl -X PATCH "http://localhost:5000/api/products/ID_DEL_PRODUCTO" \
 | **404** | Not Found | Recurso no encontrado |
 | **500** | Internal Server Error | Error del servidor/microservicio |
 | **503** | Service Unavailable | Microservicio no disponible |
+
 
 
 
