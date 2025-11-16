@@ -283,11 +283,150 @@ El API Gateway estará disponible en:
 
 ### Productsservice Endpoints
 
-#### 1. Crear Producto (POST /api/products)
+#### 1. Crear Producto (POST /api/products) (form-data)
+
+**Nota:** Solo accesible para administradores.
+
+**Request Body**
+```bash
+curl -X POST "http://localhost:5152/api/products" \
+  -H "Authorization: Bearer TU_TOKEN_AQUI" \
+  -H "Accept: application/json" \
+  -F "Name=Televisor LG 55\"" \
+  -F "Description=Pantalla 4K Ultra HD" \
+  -F "Price=450000" \
+  -F "Category=Tecnologia" \
+  -F "ImageFile=@./imagen.jpg"
+```
+
+**Response (200):**
+```json
+{
+    "id": "a1bceff2-5cea-4394-a88b-004cfbdb4792",
+    "name": "Televisor LG 55",
+    "description": "Pantalla 4K Ultra HD",
+    "price": 450000,
+    "category": "Tecnologia",
+    "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1763296401/censudex-products/trhlmyvsdiaktqao8oqv.png",
+    "status": "active",
+    "createdAt": "2025-11-16T12:33:28.417Z"
+}
+```
+
 #### 2. Listar Productos (GET /api/products)
+
+**Nota:** Solo accesible para clientes.
+
+**Request Body**
+```json
+{
+}
+```
+
+**Response (200):**
+```json
+[
+    {
+        "id": "ebe9f8da-3f0d-4c4e-bdcb-3847206ca548",
+        "name": "Producto Pixel Prueba",
+        "description": "Probando la corrección de camelCase",
+        "price": 15000,
+        "category": "Pruebas",
+        "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1761016523/censudex-products/p7j8aggxrfetebhd1vne.gif",
+        "status": "inactive",
+        "createdAt": "2025-10-21T03:10:48.014Z"
+    },
+    {
+        "id": "a1bceff2-5cea-4394-a88b-004cfbdb4792",
+        "name": "Televisor LG 55",
+        "description": "Pantalla 4K Ultra HD",
+        "price": 450000,
+        "category": "Tecnologia",
+        "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1763296401/censudex-products/trhlmyvsdiaktqao8oqv.png",
+        "status": "active",
+        "createdAt": "2025-11-16T12:33:28.417Z"
+    }
+]
+```
+
 #### 3. Obtener Producto por ID (GET /api/products/{id})
+
+**Nota:** Solo accesible para clientes.
+
+**Request Body**
+```json
+{
+}
+```
+
+**Response (200):**
+```json
+{
+    "id": "a1bceff2-5cea-4394-a88b-004cfbdb4792",
+    "name": "Televisor LG 55",
+    "description": "Pantalla 4K Ultra HD",
+    "price": 450000,
+    "category": "Tecnologia",
+    "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1763296401/censudex-products/trhlmyvsdiaktqao8oqv.png",
+    "status": "active",
+    "createdAt": "2025-11-16T12:33:28.417Z"
+}
+```
+
 #### 4. Actualizar Producto (PATCH /api/products/{id})
+
+**Nota:** Solo accesible para administradores.
+
+**Request Body**
+```bash
+curl -X PATCH "http://localhost:5000/api/products/ID_DEL_PRODUCTO" \
+  -H "Authorization: Bearer TU_TOKEN_AQUI" \
+  -H "Accept: application/json" \
+  -F "Name=Nuevo Nombre" \
+  -F "Description=Nueva descripción" \
+  -F "Price=99999" \
+  -F "Category=NuevaCategoria" \
+  -F "NewImageFile=@./nueva-imagen.jpg"
+```
+
+**Response (200):**
+```json
+{
+    "id": "a1bceff2-5cea-4394-a88b-004cfbdb4792",
+    "name": "Nuevo Nombre",
+    "description": "Nueva descripción",
+    "price": 99999,
+    "category": "NuevaCategoria",
+    "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1763296401/censudex-products/trhlmyvsdiaktqao8oqv.png",
+    "status": "active",
+    "createdAt": "2025-11-16T12:33:28.417Z"
+}
+```
+
+
 #### 5. Eliminar Producto (DELETE /api/products/{id})
+
+**Nota:** Solo accesible para administradores.
+
+**Request Body**
+```json
+{
+}
+```
+
+**Response (200):**
+```json
+{
+    "id": "a1bceff2-5cea-4394-a88b-004cfbdb4792",
+    "name": "Televisor LG 55",
+    "description": "Pantalla 4K Ultra HD",
+    "price": 450000,
+    "category": "Tecnologia",
+    "imageUrl": "https://res.cloudinary.com/censudex-products-service/image/upload/v1763296401/censudex-products/trhlmyvsdiaktqao8oqv.png",
+    "status": "inactive",
+    "createdAt": "2025-11-16T12:33:28.417Z"
+}
+```
 
 ### Inventoryservice Endpoints
 
@@ -554,4 +693,5 @@ El API Gateway estará disponible en:
 | **404** | Not Found | Recurso no encontrado |
 | **500** | Internal Server Error | Error del servidor/microservicio |
 | **503** | Service Unavailable | Microservicio no disponible |
+
 
