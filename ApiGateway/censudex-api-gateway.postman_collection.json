@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2ad35411-34ec-4c5f-89e3-42a096a2534a",
+		"_postman_id": "a18c3899-e998-4989-99e1-fb1c428f65fb",
 		"name": "censudex-api-gateway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "33648419"
@@ -55,11 +55,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{api}}/products",
+							"raw": "http://localhost:5152/api/products",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"products"
 							]
 						}
@@ -92,11 +95,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"raw": "http://localhost:5152/api/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"products",
 								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
@@ -120,11 +126,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"raw": "http://localhost:5152/api/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"products",
 								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
@@ -148,11 +157,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/products",
+							"raw": "http://localhost:5152/api/products",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"products"
 							]
 						}
@@ -165,11 +177,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"raw": "http://localhost:5152/api/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"products",
 								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
@@ -198,11 +213,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/inventory",
+							"raw": "http://localhost:5152/api/inventory",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"inventory"
 							]
 						}
@@ -215,11 +233,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"raw": "http://localhost:5152/api/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"inventory",
 								"019a83e7-ca92-7262-af39-285d7b3abcbe"
 							]
@@ -242,11 +263,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"raw": "http://localhost:5152/api/inventory/019a83e7-ca92-7262-af39-285d7b3abcbe",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"inventory",
 								"019a83e7-ca92-7262-af39-285d7b3abcbe"
 							]
@@ -265,11 +289,14 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/login",
+							"raw": "http://localhost:5152/api/login",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"login"
 							]
 						}
@@ -291,11 +318,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/validate-token",
+							"raw": "http://localhost:5152/api/validate-token",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"validate-token"
 							]
 						}
@@ -317,11 +347,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/logout",
+							"raw": "http://localhost:5152/api/logout",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"logout"
 							]
 						}
@@ -348,11 +381,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/orders",
+							"raw": "http://localhost:5152/api/orders",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders"
 							]
 						}
@@ -365,11 +401,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/orders/TRK-O8CWMMAJ2Y/status",
+							"raw": "http://localhost:5152/api/orders/TRK-O8CWMMAJ2Y/status",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders",
 								"TRK-O8CWMMAJ2Y",
 								"status"
@@ -408,11 +447,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/status",
+							"raw": "http://localhost:5152/api/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/status",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders",
 								"14b6cf04-23f1-4433-ac33-7f9b4a6d629c",
 								"status"
@@ -436,11 +478,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/cancel",
+							"raw": "http://localhost:5152/api/orders/14b6cf04-23f1-4433-ac33-7f9b4a6d629c/cancel",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders",
 								"14b6cf04-23f1-4433-ac33-7f9b4a6d629c",
 								"cancel"
@@ -455,11 +500,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/orders/history/9e2eb2c9-789c-451b-b100-7be265d71004",
+							"raw": "http://localhost:5152/api/orders/history/9e2eb2c9-789c-451b-b100-7be265d71004",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders",
 								"history",
 								"9e2eb2c9-789c-451b-b100-7be265d71004"
@@ -474,11 +522,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/orders",
+							"raw": "http://localhost:5152/api/orders",
+							"protocol": "http",
 							"host": [
-								"{{api}}"
+								"localhost"
 							],
+							"port": "5152",
 							"path": [
+								"api",
 								"orders"
 							]
 						}
@@ -519,7 +570,8 @@
 	"variable": [
 		{
 			"key": "api",
-			"value": ""
+			"value": "",
+			"type": "default"
 		}
 	]
 }
