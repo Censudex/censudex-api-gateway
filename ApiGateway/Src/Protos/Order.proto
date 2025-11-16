@@ -5,7 +5,7 @@ syntax = "proto3";
 package order;
 
 // Namespace para código generado en C# (.NET)
-option csharp_namespace = "OrderService.Protos"; 
+option csharp_namespace = "ApiGateway.Protos.Order"; 
 
 /**
  * 🚀 Definición del servicio gRPC para órdenes
@@ -49,7 +49,7 @@ message OrderItem {
  */
 message Order {
   string id = 1;              // Identificador único de la orden (UUID)
-  string clientId = 2;        // ID del cliente que realizó la orden
+  string userId = 2;        // ID del cliente que realizó la orden
   string clientName = 3;      // Nombre del cliente
   double totalAmount = 4;     // Monto total de la orden (suma de todos los items)
   string status = 5;          // Estado actual: 'pendiente', 'procesando', 'enviado', 'entregado', 'cancelado'
@@ -64,7 +64,7 @@ message Order {
  * Solicitud para crear una nueva orden
  */
 message CreateOrderRequest {
-  string clientId = 1;              // ID del cliente que crea la orden
+  string userId = 1;              // ID del cliente que crea la orden
   string clientName = 2;            // Nombre del cliente
   string shippingAddress = 3;       // Dirección de entrega
   repeated OrderItem items = 4;     // Array de items a incluir en la orden
@@ -154,7 +154,7 @@ message CancelOrderResponse {
  * Solicitud para obtener el historial de órdenes de un cliente
  */
 message GetOrderHistoryRequest {
-  string clientId = 1;              // ID del cliente cuyo historial se solicita
+  string userId = 1;              // ID del cliente cuyo historial se solicita
 }
 
 /**
