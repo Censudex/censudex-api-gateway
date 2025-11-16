@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace ApiGateway.Src.DTOs
 {
+    /// <summary>
+    /// DTO para la creación de un nuevo producto a través de la API Gateway.
+    /// </summary>
     public class CreateProductApiRequest
     {
         [Required(ErrorMessage = "Name is required.")]

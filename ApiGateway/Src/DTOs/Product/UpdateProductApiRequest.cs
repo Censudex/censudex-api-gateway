@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Http; // Necesario para IFormFile
 
 namespace ApiGateway.Src.DTOs
 {
-
+    /// <summary>
+    /// DTO para la actualización de un producto a través de la API Gateway.
+    /// </summary>
     public class UpdateProductApiRequest
     {
         public string? Name { get; set; }
