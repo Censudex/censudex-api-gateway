@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "27172d0a-74c8-4f55-b32a-53e61d64344a",
+		"_postman_id": "2ad35411-34ec-4c5f-89e3-42a096a2534a",
 		"name": "censudex-api-gateway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "34959431"
+		"_exporter_id": "33648419"
 	},
 	"item": [
 		{
@@ -12,8 +12,48 @@
 				{
 					"name": "Create Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjkyYjNiMzRlLWNjMDMtNGQyNi1hMWY4LWU0ODVkYTY4YTQ5MiIsImlhdCI6IjE3NjMyNjE4OTAiLCJleHAiOjE3NjMyNjU0OTAsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.648fBJEDBLlDeHeR-PLM-hU-2Ios9QySq_ewr--NX_M",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "aabbcc",
+									"type": "text"
+								},
+								{
+									"key": "Price",
+									"value": "10000",
+									"type": "text"
+								},
+								{
+									"key": "Category",
+									"value": "dwwdw",
+									"type": "text"
+								},
+								{
+									"key": "ImageFile",
+									"type": "file",
+									"src": "/C:/Users/nacho/OneDrive/Imágenes/noodle.png"
+								},
+								{
+									"key": "Description",
+									"value": "dwdwdw",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{api}}/products",
 							"host": [
@@ -29,16 +69,36 @@
 				{
 					"name": "Edit Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjkyYjNiMzRlLWNjMDMtNGQyNi1hMWY4LWU0ODVkYTY4YTQ5MiIsImlhdCI6IjE3NjMyNjE4OTAiLCJleHAiOjE3NjMyNjU0OTAsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.648fBJEDBLlDeHeR-PLM-hU-2Ios9QySq_ewr--NX_M",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PATCH",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Price",
+									"value": "500",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": "{{api}}/products/dada-dada-",
+							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"products",
-								"dada-dada-"
+								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
 						}
 					},
@@ -47,16 +107,26 @@
 				{
 					"name": "Delete Product",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjkyYjNiMzRlLWNjMDMtNGQyNi1hMWY4LWU0ODVkYTY4YTQ5MiIsImlhdCI6IjE3NjMyNjE4OTAiLCJleHAiOjE3NjMyNjU0OTAsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.648fBJEDBLlDeHeR-PLM-hU-2Ios9QySq_ewr--NX_M",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/products/dadada-dada-d-ad-a-da",
+							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"products",
-								"dadada-dada-d-ad-a-da"
+								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
 						}
 					},
@@ -65,6 +135,16 @@
 				{
 					"name": "Get All Products",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEyMzQ1IiwiZ2l2ZW5fbmFtZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbkBjZW5zdWRleC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTiIsImp0aSI6IjkyYjNiMzRlLWNjMDMtNGQyNi1hMWY4LWU0ODVkYTY4YTQ5MiIsImlhdCI6IjE3NjMyNjE4OTAiLCJleHAiOjE3NjMyNjU0OTAsImlzcyI6IkNlbnN1ZGV4QVBJR2F0ZXdheSIsImF1ZCI6IkNlbnN1ZGV4Q2xpZW50cyJ9.648fBJEDBLlDeHeR-PLM-hU-2Ios9QySq_ewr--NX_M",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -85,13 +165,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/products/saas-sa-sa-as",
+							"raw": "{{api}}/products/ddadeb8e-892d-4254-a691-51f75a5c6ee0",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"products",
-								"saas-sa-sa-as"
+								"ddadeb8e-892d-4254-a691-51f75a5c6ee0"
 							]
 						}
 					},
