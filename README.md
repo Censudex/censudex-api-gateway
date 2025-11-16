@@ -163,8 +163,8 @@ ADMIN_PASSWORD=Admin123
 
 # Client User Credentials
 CLIENT_ROLE=CLIENT
-CLIENT_EMAIL=client@gmail.com
-CLIENT_PASSWORD=client123
+CLIENT_EMAIL=client@censudex.com
+CLIENT_PASSWORD=Client123
 ```
 
 ### 3. Instalar Dependencias
@@ -693,5 +693,6 @@ curl -X PATCH "http://localhost:5000/api/products/ID_DEL_PRODUCTO" \
 | **404** | Not Found | Recurso no encontrado |
 | **500** | Internal Server Error | Error del servidor/microservicio |
 | **503** | Service Unavailable | Microservicio no disponible |
+
 
 
