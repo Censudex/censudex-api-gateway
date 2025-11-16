@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "a18c3899-e998-4989-99e1-fb1c428f65fb",
+		"_postman_id": "74ba2c17-283e-4a18-accf-5c2cee2f37e5",
 		"name": "censudex-api-gateway",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "33648419"
+		"_exporter_id": "34959430",
+		"_collection_link": "https://ingenieros-ucn.postman.co/workspace/Sen~e5f36ac7-f05c-4b89-a4d3-f75e8554561d/collection/34959430-74ba2c17-283e-4a18-accf-5c2cee2f37e5?action=share&source=collection_link&creator=34959430"
 	},
 	"item": [
 		{
@@ -288,6 +289,15 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@censudex.com\",\r\n  \"password\": \"Admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:5152/api/login",
 							"protocol": "http",
